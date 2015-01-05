@@ -3,7 +3,6 @@ package com.appium.apidemo.test;
 import io.appium.java_client.AppiumDriver;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 import org.junit.After;
 import org.junit.Before;
@@ -12,7 +11,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
-import com.appium.test.Appium_ApiDemo_Utils;
 
 
 
@@ -22,9 +20,10 @@ public class Android_ApiDemo {
 	private AppiumDriver wd;
 	private Appium_ApiDemo_Utils apiDemo_Utils;
 	private WebElement gestureView;
-	
+
 	@Before
 	public void setUp()  throws Exception {
+
 	    DesiredCapabilities capabilities = new DesiredCapabilities();
 	    capabilities.setCapability("appium-version", "v1.3.4");
 		capabilities.setCapability("platformName", "Android");
@@ -46,13 +45,13 @@ public class Android_ApiDemo {
 		wd.manage().timeouts().implicitlyWait(timeOut, TimeUnit.SECONDS);
 		apiDemo_Utils=new Appium_ApiDemo_Utils(wd);
 	}
-	
-	
-	
+
+
+
 	@Test
     public void Android_ApiDemo_Tour(){
-		
-		//***************************       Accessibility      ******************************
+
+	//***************************       Accessibility      ******************************
 
 		wd.findElement(By.xpath("//android.widget.TextView[@text='Accessibility']")).click();
 		wd.findElement(By.xpath("//android.widget.TextView[@text='Accessibility Node Provider']")).click();
@@ -76,7 +75,7 @@ public class Android_ApiDemo {
 		wd.navigate().back();
 
 		//***********************************           Animation           ***************************
-		
+
 		wd.findElement(By.xpath("//android.widget.TextView[@text='Animation']")).click();
 		wd.findElement(By.xpath("//android.widget.TextView[@text='Bouncing Balls']")).click();
 		try {
@@ -121,9 +120,9 @@ public class Android_ApiDemo {
 		apiDemo_Utils.ViewSwipRight(gestureView,80,1000);
 		wd.navigate().back();
 		wd.navigate().back();
-		
+
 		//**************************************      Views     **************************
-	
+
 		wd.findElement(By.xpath("//android.widget.TextView[@text='Views']")).click();
 		wd.findElement(By.xpath("//android.widget.TextView[@text='Auto Complete']")).click();
 		wd.findElement(By.xpath("//android.widget.TextView[@text='1. Screen Top']")).click();
@@ -171,7 +170,7 @@ public class Android_ApiDemo {
 		wd.findElement(By.id("com.example.android.apis:id/toggle1")).click();
 		wd.findElement(By.id("com.example.android.apis:id/toggle2")).click();
 		wd.navigate().back();
-	
+
 		wd.findElement(By.xpath("//android.widget.TextView[@text='6. Holo or Old Theme']")).click();
 		wd.findElement(By.id("com.example.android.apis:id/edit")).sendKeys("Appium");
 		wd.navigate().back();
@@ -189,9 +188,9 @@ public class Android_ApiDemo {
 		wd.navigate().back();
 		wd.navigate().back();
 		wd.navigate().back();
-		
+
 		//***************************************   Date Widgets  **********************************
-	
+
 		wd.findElement(By.xpath("//android.widget.TextView[@text='Views']")).click();
 		wd.findElement(By.xpath("//android.widget.TextView[@text='Date Widgets']")).click();
 		wd.findElement(By.xpath("//android.widget.TextView[@text='1. Dialog']")).click();
@@ -203,11 +202,11 @@ public class Android_ApiDemo {
 		wd.navigate().back();
 
 
-		
+
     }
-	
-	
-	
+
+
+
 	@After
     public void tearDown() throws Exception {
         wd.quit();
